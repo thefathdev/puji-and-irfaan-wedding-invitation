@@ -1,6 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import flowerImage from "../assets/flower.png";
+import { partners, prefixes } from "../utils/options";
+
+const name =
+  Astro.url.searchParams.get("name") || "Tamu Undangan Yang Terhormat";
+
+const prefix = Astro.url.searchParams.get("prefix") || "a";
+const prefixLabel =
+  prefix === "a" ? "" : prefixes[prefix as keyof typeof prefixes];
+
+const partner = Astro.url.searchParams.get("partner") || "a";
+const partnerLabel =
+  partner === "a" ? "" : " / " + partners[partner as keyof typeof partners];
 ---
 
 <section
@@ -67,9 +79,11 @@ import flowerImage from "../assets/flower.png";
       </defs>
     </svg>
 
-    <div class="flex flex-col gap-1">
+    <div class="flex flex-col gap-0.5 pr-20">
       <span class="text-xs font-normal">Kepada</span>
-      <span class="text-base font-bold">Bang Jago / Istri</span>
+      <span class="text-base font-bold"
+        >{prefixLabel} {decodeURIComponent(name)}{partnerLabel}</span
+      >
     </div>
   </div>
 

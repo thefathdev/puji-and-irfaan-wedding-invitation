@@ -10,6 +10,10 @@ export const prefixes = {
   i: "Saudari",
   j: "Nenek",
   k: "Mbah",
+  l: "Bude",
+  m: "Pakde",
+  n: "Om",
+  o: "Tante",
 };
 
 export const partners = {
