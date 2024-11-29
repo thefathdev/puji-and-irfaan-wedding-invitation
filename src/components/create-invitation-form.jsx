@@ -15,7 +15,7 @@ _Catur Puji Astuti_ & _Fathul Irfaan Abdillah_
 Berikut link lengkap untuk info acara kami : 
 ${createLink({ name, prefix, partner })}
 
-Merupakan suatu kebahagiaan bagi kami apabila ${prefixLabel}${name} ${partnerLabel} berkenan untuk hadir dan memberikan doa restu.
+Merupakan suatu kebahagiaan bagi kami apabila ${prefixLabel}${name}${partnerLabel} berkenan untuk hadir dan memberikan doa restu.
 Wassalamu'alaikum Warahmatullahi Wabarakatuh
 
 💐 Puji & Irfaan
