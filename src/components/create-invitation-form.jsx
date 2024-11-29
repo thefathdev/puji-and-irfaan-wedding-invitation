@@ -3,19 +3,19 @@ import { partners, prefixes } from "../utils/options";
 import { Toaster, toast } from "sonner";
 
 const createInvitation = ({ name, prefix, partner }) => {
-  const prefixLabel = prefix === "a" ? "" : prefixes[prefix];
+  const prefixLabel = prefix === "a" ? "" : prefixes[prefix] + " ";
   const partnerLabel = partner === "a" ? "" : " / " + partners[partner];
 
   const invitation = `Assalamu'alaikum Warahmatullahi Wabarakatuh
 Bismilahirahmanirrahim.
-Tanpa mengurangi rasa hormat, perkenankan kami mengundang *${prefixLabel} ${name}*${partnerLabel}, untuk menghadiri acara pernikahan kami :
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang *${prefixLabel}${name}*${partnerLabel}, untuk menghadiri acara pernikahan kami :
 
 _Catur Puji Astuti_ & _Fathul Irfaan Abdillah_
 
 Berikut link lengkap untuk info acara kami : 
 ${createLink({ name, prefix, partner })}
 
-Merupakan suatu kebahagiaan bagi kami apabila ${prefixLabel} ${name} ${partnerLabel} berkenan untuk hadir dan memberikan doa restu.
+Merupakan suatu kebahagiaan bagi kami apabila ${prefixLabel}${name} ${partnerLabel} berkenan untuk hadir dan memberikan doa restu.
 Wassalamu'alaikum Warahmatullahi Wabarakatuh
 
 💐 Puji & Irfaan
