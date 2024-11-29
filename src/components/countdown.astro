@@ -1,0 +1,109 @@
+---
+export interface Props {
+  targetDate: string;
+}
+
+const { targetDate } = Astro.props;
+---
+
+<div class="flex justify-center items-center">
+  <div class="countdown flex space-x-8" data-target={targetDate}>
+    <div class="flex flex-col items-center gap-0.5">
+      <span class="days text-heading-2 text-secondary">00</span>
+      <span class="text-body">Hari</span>
+    </div>
+    <div class="flex flex-col items-center gap-0.5">
+      <span class="hours text-heading-2 text-secondary">00</span>
+      <span class="text-body">Jam</span>
+    </div>
+    <div class="flex flex-col items-center gap-0.5">
+      <span class="minutes text-heading-2 text-secondary">00</span>
+      <span class="text-body">Menit</span>
+    </div>
+    <div class="flex flex-col items-center gap-0.5">
+      <span class="seconds text-heading-2 text-secondary">00</span>
+      <span class="text-body">Detik</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { animate } from "motion";
+
+  interface TimeElements {
+    days: HTMLElement | null;
+    hours: HTMLElement | null;
+    minutes: HTMLElement | null;
+    seconds: HTMLElement | null;
+  }
+
+  interface TimeDuration {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  }
+
+  const countdownElement = document.querySelector(".countdown") as HTMLElement;
+  const targetDateString = countdownElement.dataset.target;
+
+  if (!targetDateString) {
+    console.error("Target date not set");
+    throw new Error("Target date not set");
+  }
+
+  const targetDate = new Date(targetDateString);
+
+  function getTimeRemaining(endtime: Date): TimeDuration {
+    const total = endtime.getTime() - new Date().getTime();
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+    return {
+      days,
+      hours,
+      minutes,
+      seconds,
+    };
+  }
+
+  function updateCountdown() {
+    const timeRemaining = getTimeRemaining(targetDate);
+
+    const elements: TimeElements = {
+      days: document.querySelector(".days"),
+      hours: document.querySelector(".hours"),
+      minutes: document.querySelector(".minutes"),
+      seconds: document.querySelector(".seconds"),
+    };
+
+    const animationOptions = {
+      duration: 0.3,
+      easing: "ease-out",
+    };
+
+    Object.entries(timeRemaining).forEach(([key, value]) => {
+      const element = elements[key as keyof TimeElements];
+      if (element) {
+        animate(element, { opacity: [1, 1], scale: [1, 1] }, animationOptions);
+        element.textContent = value.toString().padStart(2, "0");
+      }
+    });
+
+    if (
+      timeRemaining.days <= 0 &&
+      timeRemaining.hours <= 0 &&
+      timeRemaining.minutes <= 0 &&
+      timeRemaining.seconds <= 0
+    ) {
+      clearInterval(countdownInterval);
+      countdownElement.innerHTML =
+        '<span class="text-heading-2 text-red-600">EXPIRED</span>';
+    }
+  }
+
+  const countdownInterval = setInterval(updateCountdown, 1000);
+  updateCountdown(); // Initial call
+</script>

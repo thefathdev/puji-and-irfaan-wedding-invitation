@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "JetBrains Mono Variable", monospace;
+}
+
+.font-display {
+  font-family: "Alex Brush", cursive;
+}
+
+@layer components {
+  .text-subtitle {
+    @apply text-base font-normal text-secondary leading-none;
+  }
+
+  .text-heading-1 {
+    @apply text-[3rem] font-medium text-primary leading-[95%];
+  }
+
+  .text-heading-2 {
+    @apply text-2xl font-bold text-primary leading-[110%];
+  }
+
+  .text-body {
+    @apply text-base font-medium text-primary leading-[110%];
+  }
+
+  .text-arabic {
+    font-family: "Amiri Quran", serif;
+    font-feature-settings:
+      "calt" off,
+      "liga" off,
+      "mkmk" off,
+      "mark" off;
+    @apply tracking-[1%] leading-[180%] text-4xl;
+  }
+}

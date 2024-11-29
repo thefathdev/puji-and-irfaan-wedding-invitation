@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import flowerImage from "../assets/flower.png";
+---
+
+<section
+  id="hero"
+  class="h-[100dvh] sticky top-0 flex flex-col justify-center px-4"
+>
+  <!-- background -->
+  <Image
+    src={flowerImage}
+    alt="hero background"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+
+  <!-- Overlay 30% -->
+  <div class="absolute inset-0 w-full h-full bg-black/30"></div>
+
+  <h1
+    class="font-display relative text-9xl flex flex-col tracking-tighter text-white"
+  >
+    <span>Puji</span>
+    <span class="text-[0.5em] self-center translate-x-[110%] -mt-8">&</span>
+    <span class="self-end -mt-2 mr-3">Irfaan</span>
+  </h1>
+
+  <div
+    class="absolute top-5 left-4 flex flex-col gap-1.5 font-medium text-base text-white leading-none"
+  >
+    <span> 06 </span>
+    <span> 12 </span>
+    <span> 24 </span>
+  </div>
+  <span
+    class="absolute top-5 right-4 font-medium text-base text-white leading-none"
+  >
+    Wedding Invitation
+  </span>
+  <div class="absolute bottom-5 left-4 flex gap-2.5 text-white leading-none">
+    <svg
+      width="31"
+      height="31"
+      viewBox="0 0 31 31"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_17_277)">
+        <path
+          d="M13.0781 17.9219L19.375 11.625"
+          stroke="white"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+        <path
+          d="M27.0873 5.10773C27.134 4.94202 27.1357 4.76685 27.0922 4.60027C27.0488 4.43369 26.9617 4.2817 26.8399 4.15996C26.7182 4.03822 26.5662 3.95112 26.3996 3.90763C26.233 3.86415 26.0579 3.86584 25.8921 3.91254L2.64215 10.9626C2.45233 11.0162 2.28339 11.1264 2.1579 11.2786C2.03241 11.4307 1.95636 11.6176 1.9399 11.8141C1.92345 12.0107 1.96737 12.2075 2.06581 12.3785C2.16425 12.5494 2.31252 12.6862 2.49078 12.7705L13.078 17.9219L18.2293 28.5079C18.3137 28.6862 18.4505 28.8344 18.6214 28.9329C18.7923 29.0313 18.9892 29.0752 19.1858 29.0588C19.3823 29.0423 19.5691 28.9663 19.7213 28.8408C19.8735 28.7153 19.9837 28.5463 20.0373 28.3565L27.0873 5.10773Z"
+          stroke="white"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </g>
+      <defs>
+        <clipPath id="clip0_17_277">
+          <rect width="31" height="31" fill="white"></rect>
+        </clipPath>
+      </defs>
+    </svg>
+
+    <div class="flex flex-col gap-1">
+      <span class="text-xs font-normal">Kepada</span>
+      <span class="text-base font-bold">Bang Jago / Istri</span>
+    </div>
+  </div>
+
+  <div
+    class="absolute bottom-5 right-4 flex items-center justify-center size-20 rounded-full border border-white"
+  >
+    <svg
+      width="22"
+      height="26"
+      viewBox="0 0 22 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line x1="11.5" y1="-2.18557e-08" x2="11.5" y2="26" stroke="white"></line>
+      <path
+        d="M21.96 15.3535C21.96 15.3535 19.4998 15.5 15.4998 19.5C11.4998 23.5 11.3534 25.9601 11.3534 25.9601"
+        stroke="white"></path>
+      <path
+        d="M1 15.3535C1 15.3535 3.46014 15.5 7.46014 19.5C11.4601 23.5 11.6066 25.9601 11.6066 25.9601"
+        stroke="white"></path>
+    </svg>
+  </div>
+</section>

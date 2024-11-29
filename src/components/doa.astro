@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import flowerImage from "../assets/flower.png";
+---
+
+<div id="doa" class="h-[100dvh] w-screen relative px-4"></div>
+<section
+  id="doa-content"
+  class="h-[100dvh] w-screen fixed top-0 flex flex-col justify-center px-4 pt-16 pb-48"
+>
+  <!-- background -->
+  <Image
+    src={flowerImage}
+    alt="hero background"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+
+  <!-- Overlay 30% -->
+  <div class="absolute inset-0 w-full h-full bg-black/30"></div>
+
+  <!-- Loves -->
+  <div class="flex items-center justify-center relative mb-16">
+    <svg
+      width="202"
+      height="127"
+      viewBox="0 0 202 127"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M115.148 124.28C157.952 84.7691 231.842 5.74675 184.974 5.74675C126.388 5.74675 104.93 67.0572 121.62 71.8258C138.31 76.5943 110.38 2 65.078 2C28.8368 2 83.3575 83.5202 115.148 124.28Z"
+        stroke="white"
+        stroke-width="3"></path>
+      <path
+        d="M45.1642 124.621C74.937 97.1062 126.333 42.0767 93.7325 42.0767C52.9825 42.0767 38.0568 84.772 49.6658 88.0927C61.2748 91.4135 41.8474 39.4675 10.3372 39.4675C-14.8709 39.4675 23.0518 96.2364 45.1642 124.621Z"
+        stroke="white"
+        stroke-width="3"></path>
+    </svg>
+  </div>
+  <div class="relative">
+    <span class="text-subtitle mb-3 block text-white"
+      >Doa untuk kedua mempelai</span
+    >
+    <p class="text-arabic bg-white bg-clip-text text-transparent mb-6">
+      بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِى خَيْرٍ
+    </p>
+    <p class="text-subtitle block text-white leading-normal">
+      “Semoga Allah memberkahimu ketika bahagia dan ketika susah dan
+      mengumpulkan kalian berdua dalam kebaikan.” <br /> (HR. Abu Daud, no. 2130;
+      <br />
+      Tirmidzi, no. 1091).
+    </p>
+  </div>
+</section>
+
+<script>
+  import { inView, animate } from "motion";
+
+  animate("#doa-content", { opacity: 0 }, { duration: 0.001 });
+
+  inView("#doa", () => {
+    console.log("doa section enter");
+
+    animate("#hero", { opacity: 0 }, { duration: 0.001 });
+    animate("#doa-content", { opacity: 1 }, { duration: 0.001 });
+
+    return () => {
+      console.log("doa section exit");
+      animate("#hero", { opacity: 1 }, { duration: 0.001 });
+      animate("#doa-content", { opacity: 0 }, { duration: 0.001 });
+    };
+  });
+</script>
