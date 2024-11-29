@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../../layouts/main-layout.astro";
+import flowerImage from "../../assets/flower.png";
+import CreateInvitationForm from "../../components/create-invitation-form";
+---
+
+<MainLayout>
+  <div class="h-32 w-full relative mb-8">
+    <Image
+      src={flowerImage}
+      alt="hero background"
+      class="absolute inset-0 w-full h-full object-cover object-top"
+    />
+  </div>
+  <section class="bg-white w-full px-4">
+    <h1 class="font-display text-primary text-4xl text-center">
+      Buat Undangan
+    </h1>
+
+    <p class="text-center mt-2 text-body text-primary mb-8">
+      Silahkan isi info tamu undangan
+    </p>
+
+    <!-- Form -->
+    <CreateInvitationForm client:visible />
+  </section>
+</MainLayout>
