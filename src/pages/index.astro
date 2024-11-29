@@ -7,67 +7,14 @@ import Doa from "../components/doa.astro";
 import Footer from "../components/footer.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+<MainLayout>
+  <Hero />
 
-    <style>
-      html.lenis,
-      html.lenis body {
-        height: auto;
-      }
+  <About />
 
-      .lenis.lenis-smooth {
-        scroll-behavior: auto !important;
-      }
+  <PlaceAndDate />
 
-      .lenis.lenis-smooth [data-lenis-prevent] {
-        overscroll-behavior: contain;
-      }
+  <Doa />
 
-      .lenis.lenis-stopped {
-        overflow: clip;
-      }
-
-      .lenis.lenis-smooth iframe {
-        pointer-events: none;
-      }
-    </style>
-  </head>
-  <MainLayout>
-    <body class="relative">
-      <Hero />
-
-      <About />
-
-      <PlaceAndDate />
-
-      <Doa />
-
-      <Footer />
-
-      <script>
-        import Lenis from "lenis";
-        // Initialize Lenis
-        const lenis = new Lenis();
-
-        // Listen for the scroll event and log the event data
-        lenis.on("scroll", (e) => {
-          // console.log(e);
-        });
-
-        // Use requestAnimationFrame to continuously update the scroll
-        function raf(time: number) {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-      </script>
-    </body>
-  </MainLayout>
-</html>
+  <Footer />
+</MainLayout>

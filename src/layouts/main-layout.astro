@@ -8,4 +8,56 @@ import "@fontsource/amiri-quran/arabic-400.css";
 import "../global.css";
 ---
 
-<slot />
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Puji & Irfaan</title>
+
+    <style>
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: clip;
+      }
+
+      .lenis.lenis-smooth iframe {
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <slot />
+    <script>
+      import Lenis from "lenis";
+      // Initialize Lenis
+      const lenis = new Lenis();
+
+      // Listen for the scroll event and log the event data
+      lenis.on("scroll", (e) => {
+        // console.log(e);
+      });
+
+      // Use requestAnimationFrame to continuously update the scroll
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+  </body>
+</html>
