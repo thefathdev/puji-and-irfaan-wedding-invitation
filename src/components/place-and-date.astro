@@ -1,21 +1,21 @@
 <section class="bg-white w-screen z-10 relative pt-20 pb-48 px-4">
-  <div class="mb-24 sm:text-center">
+  <div class="mb-24 sm:text-center date-info">
     <span class="text-subtitle mb-3 block">Hari / Tanggal</span>
     <h2 class="text-heading-1 mb-2">
       Jum’at, <br class="" /> 6 Desember <br class="sm:hidden" /> 2024
     </h2>
   </div>
 
-  <div class="mb-7 sm:text-center">
+  <div class="mb-7 sm:text-center time-info-1">
     <span class="text-subtitle mb-3 block">Akad Nikah</span>
     <h2 class="text-heading-2 mb-2">08.00 WIB</h2>
   </div>
-  <div class="mb-48 sm:text-center">
+  <div class="mb-48 sm:text-center time-info-2">
     <span class="text-subtitle mb-3 block">Resepsi</span>
     <h2 class="text-heading-2 mb-2">09.30 - 11.00 WIB</h2>
   </div>
 
-  <div class="sm:text-center">
+  <div class="sm:text-center place-info">
     <span class="text-subtitle mb-3 block">Tempat Acara</span>
     <h2 class="text-heading-1 mb-2">
       Patok 4, <br class="" /> Rasau Jaya Satu
@@ -46,3 +46,15 @@
     </a>
   </div>
 </section>
+
+<script>
+  import { animateBlurStagger } from "../utils/animate-blur-stagger";
+
+  animateBlurStagger(".date-info");
+
+  animateBlurStagger(".place-info");
+
+  animateBlurStagger(".time-info-1");
+
+  animateBlurStagger(".time-info-2");
+</script>

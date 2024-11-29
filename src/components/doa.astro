@@ -37,7 +37,7 @@ import flowerImage from "../assets/flower.png";
         stroke-width="3"></path>
     </svg>
   </div>
-  <div class="relative sm:text-center">
+  <div class="relative sm:text-center doa">
     <span class="text-subtitle mb-3 block text-white"
       >Doa untuk kedua mempelai</span
     >
@@ -56,7 +56,7 @@ import flowerImage from "../assets/flower.png";
 </section>
 
 <script>
-  import { inView, animate } from "motion";
+  import { inView, animate, stagger } from "motion";
 
   animate("#doa-content", { opacity: 0 }, { duration: 0.001 });
 
@@ -65,6 +65,25 @@ import flowerImage from "../assets/flower.png";
 
     animate("#hero", { opacity: 0 }, { duration: 0.001 });
     animate("#doa-content", { opacity: 1 }, { duration: 0.001 });
+
+    inView("#doa", ({ target }) => {
+      const items = document.querySelectorAll(".doa > *");
+      animate(
+        items,
+        {
+          // @ts-ignore
+          filter: ["blur(6px)", "blur(0px)"],
+          opacity: [0, 1],
+        },
+        {
+          duration: 1,
+          easing: "ease-out",
+          delay: stagger(0.2, {
+            startDelay: 0.5,
+          }),
+        }
+      );
+    });
 
     return () => {
       console.log("doa section exit");

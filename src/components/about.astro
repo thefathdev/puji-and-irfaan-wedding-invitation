@@ -1,5 +1,5 @@
 <section id="about" class="bg-white z-10 w-screen relative py-32 px-4">
-  <div class="sm:text-center">
+  <div class="sm:text-center bride-info">
     <span class="text-subtitle mb-3 block">Mempelai Wanita</span>
     <h2 class="text-heading-2 mb-2">Catur Puji Astuti</h2>
     <p class="text-body">Anak ke-4 dari bapak Sukamto dan ibu Sri Hamidah</p>
@@ -20,7 +20,7 @@
     </svg>
   </div>
 
-  <div class="sm:text-center">
+  <div class="sm:text-center groom-info">
     <span class="text-subtitle mb-3 block">Mempelai Pria</span>
     <h2 class="text-heading-2 mb-2">Fathul Irfaan Abdillah</h2>
     <p class="text-body">
@@ -28,3 +28,41 @@
     </p>
   </div>
 </section>
+
+<script>
+  import { animate, inView, stagger } from "motion";
+
+  inView(".bride-info", ({ target }) => {
+    const items = target.querySelectorAll(":scope > *");
+    animate(
+      items,
+      {
+        // @ts-ignore
+        filter: ["blur(6px)", "blur(0px)"],
+        opacity: [0, 1],
+      },
+      {
+        duration: 1,
+        easing: "ease-out",
+        delay: stagger(0.2),
+      }
+    );
+  });
+
+  inView(".groom-info", ({ target }) => {
+    const items = target.querySelectorAll(":scope > *");
+    animate(
+      items,
+      {
+        // @ts-ignore
+        filter: ["blur(6px)", "blur(0px)"],
+        opacity: [0, 1],
+      },
+      {
+        duration: 1,
+        easing: "ease-out",
+        delay: stagger(0.2),
+      }
+    );
+  });
+</script>

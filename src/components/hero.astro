@@ -18,9 +18,9 @@ import flowerImage from "../assets/flower.png";
   <div class="absolute inset-0 w-full h-full bg-black/30"></div>
 
   <h1
-    class="font-display relative text-9xl sm:text-[10rem] lg:text-[12rem] flex flex-col tracking-tighter text-white sm:items-center sm:gap-6 lg:gap-12 sm:flex-row sm:justify-center"
+    class="font-display hero-text relative text-9xl sm:text-[10rem] lg:text-[12rem] flex flex-col tracking-tighter text-white sm:items-center sm:gap-6 lg:gap-12 sm:flex-row sm:justify-center"
   >
-    <span>Puji</span>
+    <span class="">Puji</span>
     <span
       class="text-[0.5em] max-sm:self-center max-sm:translate-x-[110%] max-sm:-mt-8"
       >&</span
@@ -93,3 +93,24 @@ import flowerImage from "../assets/flower.png";
     </svg>
   </div>
 </section>
+
+<script>
+  import { animate, inView, stagger } from "motion";
+
+  inView(".hero-text", ({ target }) => {
+    const spans = target.querySelectorAll("span");
+    animate(
+      spans,
+      {
+        // @ts-ignore
+        filter: ["blur(10px)", "blur(0px)"],
+        opacity: [0, 1],
+      },
+      {
+        duration: 1,
+        easing: "ease-out",
+        delay: stagger(0.2),
+      }
+    );
+  });
+</script>
